@@ -21,14 +21,12 @@ while True:
 
     print(30*("=-"))
     print("notas do bimestre e resultado da media\n")       
-    print ("{:<8} {:<15}".format('periodo\t\t','nota'))
-
+    
+    print('periodo\t\tnota')
     for results in tabela_notas:
             periodo, nota = results
             
-            print ("\n{:<8} {:<15} ".format( periodo, nota))
+            print (f"\n{periodo} {nota} ")
     print(30*("=-"))        
 
 
-"""   print(f'a media é : {media}')
-    print(30*"=-", '\n') """
