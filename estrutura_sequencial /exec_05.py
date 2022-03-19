@@ -1,6 +1,6 @@
 #Faça um Programa que converta metros para centímetros.
 
-import string
+
 
 
 while True : 
