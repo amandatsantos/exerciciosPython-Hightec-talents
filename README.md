@@ -4,7 +4,7 @@
 
 ## Indice 
 
-<h4> <a href= "https://wiki.python.org.br/EstruturaSequencial"> Python - EstruturaSequencial </a></h4>
+<h4> <a href= "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/estrutura_sequencial%20"> Python - EstruturaSequencial </a></h4>
 <ul> 
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_01.py" > exec 01 </a> </li>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_02.py" > exec 02 </a> </li>
