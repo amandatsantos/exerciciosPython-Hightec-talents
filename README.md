@@ -10,12 +10,12 @@
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_02.py" > exec 02 </a> </li>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_03.py" > exec 03 </a> </li>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_04.py" > exec 04 </a> </li>
-<li><a href = "" > exec 01 </a> </li>
-<li><a href = "" > </a> </li>
-<li><a href = "" > </a> </li>
-<li><a href = "" > </a> </li>
-<li><a href = "" > </a> </li>
-<li><a href = "" > </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_05.py" > exec 05 </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_06.py" > exec 06 </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_07.py" > exec 07 </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_08.py" > exec 08 </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_09.py" > exec 09 </a>  </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_10.py" > exec 10 </a> </li>
 <li><a href = "" > </a> </li>
 
 </ul>
