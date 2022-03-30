@@ -16,8 +16,13 @@
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_08.py" > exec 08 </a> </li>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_09.py" > exec 09 </a>  </li>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/estrutura_sequencial%20/exec_10.py" > exec 10 </a> </li>
-<li><a href = "" > </a> </li>
 
+</ul>
+
+<h4> <a href= ""> Python -Funções </a></h4>
+<ul>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/exercicios_funcoes/exc_tabuada" > exec tabuada </a> </li>
+<li><a href = "" > exec cadastro </a> </li>
 </ul>
 
 # Link da lista 
