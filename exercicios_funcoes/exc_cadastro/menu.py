@@ -1,4 +1,4 @@
-from agenda import *
+from registro import *
 
 usuario = input("Entre com o seu nome: ")
 print(f"Seja Bem-vindo {usuario} !\n")

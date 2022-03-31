@@ -45,7 +45,7 @@ def excluir_registro(registro):
 
 def salvar_registro_arquivo ():
     try : 
-        with open ('exercicios_funcoes/cadastro/repositorio_registros/registros.txt', 'a') as arq:
+        with open ('exercicios_funcoes/exc_cadastro/repositorio_registros/registros.txt', 'a') as arq:
             arq.writelines ("registro\t | telefone\t | endereco\t | email\t | data_nascimento\n")
             for registro in database:
                 telefone = database[registro]['telefone']

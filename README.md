@@ -19,10 +19,10 @@
 
 </ul>
 
-<h4> <a href= ""> Python -Funções </a></h4>
+<h4> <a href= "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/exercicios_funcoes"> Python -Funções </a></h4>
 <ul>
 <li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/exercicios_funcoes/exc_tabuada" > exec tabuada </a> </li>
-<li><a href = "" > exec cadastro </a> </li>
+<li><a href = "https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/exercicios_funcoes/exc_cadastro" > exec cadastro </a> </li>
 </ul>
 
 # Link da lista 
