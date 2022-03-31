@@ -1,4 +1,4 @@
-from registro import *
+from registros import *
 
 usuario = input("Entre com o seu nome: ")
 print(f"Seja Bem-vindo {usuario} !\n")

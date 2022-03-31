@@ -1,0 +1,2 @@
+registro	 | telefone	 | endereco	 | email	 | data_nascimento
+amanda		 | 123654		 | rua a		 | amanda@email.com		 | 20/01/2001
