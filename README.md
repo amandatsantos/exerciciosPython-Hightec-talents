@@ -32,8 +32,9 @@
 <h4> <a href= https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/modelo%20%20pymod> Modelo relacional </a></h4>
 <ul>
 <li><a href = https://github.com/amandatsantos/exerciciosPython-Hightec-talents/blob/main/modelo%20%20pymod/pymod%20postgreesql%202022-04-06.sql> pymod postgreesql </a> </li>
+</ul>
 
-<h4> <a href= https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/flaskSqlalchemy> flask Sqlalchemy </a></h4>
+<h4> <a href= https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/flaskSqlalchemy> Flask Sqlalchemy </a></h4>
 <ul>
 <li><a href = https://github.com/amandatsantos/exerciciosPython-Hightec-talents/tree/main/flaskSqlalchemy/app> app pysongs </a> </li>
 
