@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+        <h3>Songs - Flask SQLAlchemy example</h3>
+        <hr />
+
+        {%- for category, message in get_flashed_messages(with_categories = true) %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {%- endfor %}
+
+        <form action="{{ request.path }}" method="POST">
+            <label for="name_song">Name Song</label><br>
+            <input type="text" name="name_song" placeholder="Name of song" /><br>
+            <label for="singer">Singer</label><br>
+            <input type="text" name="singer" placeholder="Singer" /><br>
+            <label for="musica_style">Music Style</label><br>
+            <input type="text" name="music_style" placeholder="Musica style" /><br>
+            <label for="song_writer">Song Writer</label><br>
+            <input type="text" name="song_writer" placeholder="Song Writer" /><br>
+            <label for="release_year">Release Year</label><br>
+            <input type="text" name="release_year" placeholder="Release year" /><br>
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+
+</html>

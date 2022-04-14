@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+    <body>
+        <h3>
+            <a href="{{ url_for('show_all') }}">Comments - Flask
+                SQLAlchemy example</a>
+        </h3>
+
+        <hr />
+        {%- for message in get_flashed_messages() %}
+            {{ message }}
+        {%- endfor %}
+
+        <h3>songs (<a href="{{ url_for('new') }}">Add Song
+            </a>)</h3>
+
+        <table border = 1>
+            <thead>
+                <tr>
+                    <th>Name Song</th>
+                    <th>Singer</th>
+                    <th>Music Style</th>
+                    <th>Song Writer</th>
+                    <th>Release Year </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for song in songs %}
+                    <tr>
+
+                        <td>{{ song.name_song }}</td>
+                        <td>{{ song.singer }}</td>
+                        <td>{{ song.music_style }}</td>
+                        <td>{{ song.song_writer }}</td>
+                        <td>{{ song.release_year }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+
+</html>
