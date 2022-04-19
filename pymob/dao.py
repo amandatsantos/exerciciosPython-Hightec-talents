@@ -49,19 +49,18 @@ x = Imovel(id, "casa 2 quartos ", 'rua lar nova esperança', '45700-00', 'nova i
 a = Aluguel(id ,x, "lidalvo", 'jose', 'joao')
 DaoAluguel.salvar(a)
 
-class DaoEstoque:
+class DaoImovel:
     @classmethod
     def salvar(cls,imovel: Imovel, disponivel):
-        with open('estoque.txt', 'a') as arq:
-            arq.writelines( imovel.id +"|" + imovel.nome + "|" + imovel.logradouro + "|" + imovel.cep +"|" + imovel.bairro+ "|" + imovel.cidade + "|" + imovel.estado +  "|" + imovel.valor +"|" +
-                           + "|" + imovel.descricao +"|"+imovel.categoria + "|" + (imovel.disponivel))
+        with open('imovel.txt', 'a') as arq:
+            arq.writelines(str(imovel.id)+"|" + imovel.nome + "|" + imovel.logradouro + "|" + imovel.cep +"|" + imovel.bairro+ "|" + imovel.cidade + "|" + imovel.estado + "|" + str(imovel.valor) +"|"+imovel.descricao +"|"+imovel.categoria + "|" + str(imovel.disponivel )+"|"+ str(disponivel))
             arq.writelines('\n')
 
 
 
     @classmethod
     def ler(cls):
-        with open('estoque.txt', 'r') as arq:
+        with open('imovel.txt', 'r') as arq:
             cls.estoque = arq.readlines()
 
         cls.estoque = list(map(lambda x: x.replace('\n', ''), cls.estoque))
@@ -69,16 +68,17 @@ class DaoEstoque:
         est = []
         if len(cls.estoque) > 0:
             for i in cls.estoque:
-                est.append(Estoque(Imovel(i[0], i[1], i[2], i[3], i[4],i[5],i[6],i[7],i[8],i[9], i[10]), str(i[10])))
+                est.append(Estoque(Imovel(i[0], i[1], i[2], i[3], i[4],i[5],i[6],i[7],i[8],i[9]), i[11]))
 
         return est
 b = Imovel(id,"casa 3 quartos", 'rua 25','45700000', "nova itapetinga", 'itapetinga', "bahia", "2.500", ' casa arejada', 'apartamento',)
-DaoEstoque.salvar(b)
+DaoImovel.salvar(b, True)
+
 class DaoProprietario:
     @classmethod
     def salvar(cls, propietario : Proprietario):
         with open('proprietario.txt', 'a') as arq:
-            arq.writelines(propietario.nome + "|" + propietario.cpf + "|" + propietario.telefone
+            arq.writelines(str(propietario.id)+"|"+propietario.nome + "|" + propietario.cpf + "|" + propietario.telefone +"|"+ propietario.email
                            + "|" + propietario.categoria)
             arq.writelines('\n')
 
@@ -91,18 +91,19 @@ class DaoProprietario:
         cls.proprietario = list(map(lambda x: x.split('|'), cls.proprietario))
         prop = []
         for i in cls.proprietarios:
-            prop.append(Proprietario(i[0], i[1], i[2], i[3]))
+            prop.append(Proprietario(i[0], i[1], i[2], i[3], i[4]))
 
         return prop
 
-
+a =Proprietario(id,'joao' , '12365478912', "1236547891", "amanama@amana",'casa')
+DaoProprietario.salvar(a)
 
 class DaoPessoa:
     @classmethod
     def salvar(cls, pessoas: Pessoa):
         with open('inquilino.txt', 'a') as arq:
-            arq.writelines(pessoas.id +"|"+pessoas.nome + "|" + pessoas.telefone + "|" + pessoas.cpf
-                           + "|" + pessoas.email )
+            arq.writelines(str(pessoas.id) +"|"+pessoas.nome + "|" + pessoas.telefone +"|" + pessoas.email + "|" + pessoas.cpf
+                           )
             arq.writelines('\n')
 
     @classmethod
@@ -118,14 +119,14 @@ class DaoPessoa:
             inqui.append(Pessoa(i[0], i[1], i[2], i[3], i[4]))
 
         return inqui
-
-
+a = Pessoa(id, 'luan', '123647895', '5465464564', 'amaanaamana@amnaman')
+DaoPessoa.salvar(a)
 class DaoCorretor:
     @classmethod
     def salvar(cls, corretor: Corretor):
         with open('corretor.txt', 'a') as arq:
-            arq.writelines(corretor.id+"|"+corretor.creci + "|" + corretor.nome + "|" + corretor.telefone
-                           + "|" +corretor.cpf + "|" + corretor.email )
+            arq.writelines(str(corretor.id)+"|"+corretor.creci + "|" + corretor.nome + "|" + corretor.telefone
+                            + "|" +corretor.cpf + "|" + corretor.email )
             arq.writelines('\n')
 
     @classmethod
@@ -138,6 +139,9 @@ class DaoCorretor:
 
         corret = []
         for i in cls.corretor:
-            corret.append(Corretor(i[0], i[1], i[2], i[3], i[4], i[5]))
+            corret.append(Corretor(i[0], i[1], i[2], i[3], i[4], i[5], i[6]))
 
         return corret
+
+p= Corretor(id, 'BA-123654', "jose", "14563214565", "123654978", 'asdasdas')        
+DaoCorretor.salvar(p)

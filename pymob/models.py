@@ -21,7 +21,7 @@ class Imovel (object):
         self.disponivel = disponivel
 
 class Estoque:
-    def __init__(self, imovel: Imovel, diponivel= bool(True)):
+    def __init__(self, imovel: Imovel, diponivel= True):
         self.imovel = imovel
         self.disponivel= diponivel
 
@@ -64,4 +64,4 @@ class Corretor(Pessoa):
         Corretor.ref_id += 1
         self.id = Corretor.ref_id
         self.creci = creci
-        super(Corretor, self).__init__(nome, telefone, cpf, email)
+        super(Corretor, self).__init__(id,nome, telefone, cpf, email)

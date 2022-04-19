@@ -33,10 +33,10 @@ class ControllerCategoria:
                     arq.writelines(i.categoria)
                     arq.writelines('\n')
 
-        estoque = DaoEstoque.ler()
+        estoque = DaoImovel.ler()
 
         estoque = list(map(lambda x: Estoque(Imovel(x.imovel.nome, x.imovel.valor, "Sem categoria"), x.disponivel) if(x.imovel.categoria == categoriaRemover) else(x), estoque))
-        with open('estoque.txt', 'w') as arq:
+        with open('imovel.txt', 'w') as arq:
             for i in estoque:
                 arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade))
                 arq.writelines("\n")
@@ -52,12 +52,12 @@ class ControllerCategoria:
                 x = list(map(lambda x: Categoria(categoriaAlterada) if(x.categoria == categoriaAlterar) else(x) ,x))
                 print('A altereção foi efetuada com sucesso')
 
-                estoque = DaoEstoque.ler()
+                estoque = DaoImovel.ler()
 
                 estoque = list(map(
                     lambda x: Estoque(Imovel(x.imovel.nome, x.imovel.valor, categoriaAlterada), x.disponivel) if (
                                 x.imovel.categoria == categoriaAlterar) else (x), estoque))
-                with open('estoque.txt', 'w') as arq:
+                with open('imovel.txt', 'w') as arq:
                     for i in estoque:
                         arq.writelines(i.imovel.nome + "|" + i.imovel.valor + "|" + i.imovel.categoria + "|" + str(
                             i.disponivel))
@@ -85,24 +85,24 @@ class ControllerCategoria:
 ###############
 
 class ControllerEstoque:
-    def cadastrarImovel(self, id, logradouro, cep, bairro, cidade, estado, valor, descricao, disponivel, categoria):
-        x = DaoEstoque.ler()
+    def cadastrarImovel(self, id, nome, logradouro, cep, bairro, cidade, estado, valor, descricao, disponivel, categoria):
+        x = DaoImovel.ler()
         y = DaoCategoria.ler()
         h = list(filter(lambda x: x.categoria == categoria, y))
-        est = list(filter(lambda x: x.imovel.logadouro == logradouro, x))
+        est = list(filter(lambda x: x.imovel.logradouro == logradouro, x))
 
         if len(h) > 0:
             if len(est) == 0:
-                produto = Imovel(logradouro, valor, categoria)
-                DaoEstoque.salvar(produto,disponivel)
+                imovel= Imovel( id, nome, logradouro, cep, bairro, cidade, estado, valor, descricao, categoria)
+                DaoImovel.salvar(imovel,disponivel)
                 print('Imovel cadastrado com sucesso')
             else:
                 print('Imovel já existe em estoque')
         else:
             print('Categoria inexistente')
 
-    def removerProduto(self, logradouro):
-        x = DaoEstoque.ler()
+    def removerImovel(self, logradouro):
+        x = DaoImovel.ler()
         est = list(filter(lambda x: x.imovel.logradouro == logradouro, x))
         if len(est) > 0:
             for i in range(len(x)):
@@ -112,14 +112,14 @@ class ControllerEstoque:
         else:
             print('O Imovel que deseja remover não existe')
 
-        with open('estoque.txt', 'w') as arq:
+        with open('imovel.txt', 'w') as arq:
             for i in x:
                 arq.writelines(i.imovel.nome + "|" + i.imovel.valor + "|" +
                            i.imovel.categoria + "|" + str(i.disponivel))
                 arq.writelines('\n')
 
     def alterarImovel(self, nomeAlterar, novoNome, novoValor, novaCategoria, disponibilidade):
-        x = DaoEstoque.ler()
+        x = DaoImovel.ler()
         y = DaoCategoria.ler()
         h = list(filter(lambda x: x.categoria == novaCategoria, y))
         if len(h) > 0:
@@ -134,7 +134,7 @@ class ControllerEstoque:
             else:
                 print('Imovel que deseja alterar não existe')
 
-            with open('estoque.txt', 'w') as arq:
+            with open('imovel.txt', 'w') as arq:
                 for i in x:
                     arq.writelines( i.imovel.id +"|" + i.imovel.nome + "|" + i.imovel.logradouro + "|" + i.imovel.cep +"|" +i.imovel.bairro+ "|" + i.imovel.cidade + "|" + i.imovel.estado +  "|" + i.imovel.valor +"|" +
                            + "|" + i.imovel.descricao +"|"+i.imovel.categoria + "|" + str(i.disponivel))
@@ -143,7 +143,7 @@ class ControllerEstoque:
             print('A categoria informada não existe')
 
     def mostrarEstoque(self):
-        estoque = DaoEstoque.ler()
+        estoque = DaoImovel.ler()
         if len(estoque) == 0:
             print('Estoque vazio')
         else:
@@ -154,16 +154,16 @@ class ControllerEstoque:
                     f"bairro: {i.imovel.bairro}\n"
                     f" cidade: {i.imovel. cidade}\n"
                     f" estado: {i.imovel. estado}\n"
-                      f"Preco: {i.imovel.valor}\n"
+                      f"valor: {i.imovel.valor}\n"
                       f"Categoria: {i.imovel.categoria}\n"
-                      f"Quantidade: {i.disponibilidade}"
+                      f"Quantidade: {i.disponivel}"
 
                 )
                 print("--------------------")
 
 class ControllerAluguel:
-    def cadastrarImovel(self, nomeImovel, corretor, proprietario, inquilino, disponivel):
-        x = DaoEstoque.ler()
+    def cadastrarImovel(self,id, nomeImovel, corretor, proprietario, inquilino, disponivel):
+        x = DaoImovel.ler()
         temp = []
         existe = False
         disponibilidade = False
@@ -181,12 +181,12 @@ class ControllerAluguel:
 
             temp.append(Estoque(Imovel(i.imovel.id, i.imovel.nome, i.imovel.logradouro,i.imovel.cep, i.imovel.bairo, i.imovel.cidade,i.imovel.estado,i.imovel.valor, i.imovel.descricao,i.imovel.categoria), i.disponibilidade))
 
-        arq = open('estoque.txt', 'w')
+        arq = open('imovel.txt', 'w')
         arq.write("")
 
 
         for i in temp:
-            with open('estoque.txt', 'a') as arq:
+            with open('imovel.txt', 'a') as arq:
                 arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade))
                 arq.writelines('\n')
 
@@ -202,7 +202,7 @@ class ControllerAluguel:
 
 
 
-    def mostrarVenda(self, id):
+    def mostrarAluguek(self, id):
             x = DaoAluguel.ler()
             
             AluguelID = list(filter(lambda x: x.id == id, x))
