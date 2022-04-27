@@ -6,7 +6,7 @@ class Categoria:
 class Imovel (object):
     #gerar o id
     ref_id = 0
-    def __init__(self, id,nome,logradouro, cep, bairro, cidade, estado, valor, descricao, categoria, disponivel = True):
+    def __init__(self, id,nome,logradouro, cep, bairro, cidade, estado, valor, descricao, categoria, disponivel ):
         Imovel.ref_id += 1
         self.id = Imovel.ref_id
         self.nome = nome
@@ -21,9 +21,9 @@ class Imovel (object):
         self.disponivel = disponivel
 
 class Estoque:
-    def __init__(self, imovel: Imovel, diponivel= True):
+    def __init__(self, imovel: Imovel, disponibilidade ):
         self.imovel = imovel
-        self.disponivel= diponivel
+        self.disponibilidade= disponibilidade
 
 class Aluguel:
     ref_id = 0

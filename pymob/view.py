@@ -68,22 +68,31 @@ if __name__ == "__main__":
                     estado = input("Digite a cidade: \n")
                     valor = input("Digite o valor do aluguel : \n")
                     descricao = input("Digite uma breve descrição sobre o imovel: \n")
-                    disponivel = input("imovel esta disponivel: \n")
                     categoria = input("digite a categoria do imocel : apartamento, casa, tapera ....")
-                    cat.cadastrarImovel(id,nome,logradouro,cep, bairro, cidade, estado, valor, descricao, disponivel, categoria)
+                    disponivel = input("digite se o imovel esta apto para ser alugado")
+                    disponibilidade = input("digite se o imovel esta apto para ser alugado")
+                    cat.cadastrarImovel(id,nome,logradouro,cep, bairro, cidade, estado, valor, descricao,  categoria, disponivel, disponibilidade)
 
                 elif decidir == 2:
-                    produto = input("Digite o logradouro do imovel que deseja remover: \n")
+                    id= input("Digite o id do imovel que deseja remover: \n")
 
-                    cat.removerImovel(logradouro)
+                    cat.removerImovel(id)
                 elif decidir == 3:
                     nomeAlterar = input("Digite o nome do imovel que deseja alterar: \n")
-                    nome = input("Digite o novo nome do imovel: \n")
-                    valor = input("Digite o novo valor do aluguel do imovel: \n")
-                    categoria = input("Digite a nova categoria do imovel: \n")
-                    diponivel= input("Digite se o imovel esta disponivel: \n")
+                    novoNome = input("Digite o novo nome do imovel: \n")
+                    novologradouro = input("Digite o logradouro: \n")
+                    novoCep = input("Digite o cep: \n")
+                    novoBairro = input("Digite o bairro: \n")
+                    novaCidade = input("Digite a cidade: \n")
+                    novoEstado = input("Digite a estado: \n")
+                    novoValor = input("Digite o novo valor do aluguel do imovel: \n")
+                    novaDescricao = input("Digite uma breve descrição sobre o imovel: \n")
+                    novaCategoria = input("Digite a nova categoria do imovel: \n")
+                    nDisponivel = input("digite se o imovel esta apto para ser alugado")
+                    disponibilidade = input("alguma observação em relação a disponibilidade:")
+                    
 
-                    cat.alterarImovel(nomeAlterar, nome, valor, categoria, disponivel)
+                    cat.alterarImovel(nomeAlterar, novoNome,novologradouro, novoCep, novoBairro, novaCidade , novoEstado, novoValor, novaDescricao,novaCategoria,nDisponivel, disponibilidade)
                 elif decidir == 4:
                     cat.mostrarEstoque()
                 else:
@@ -102,8 +111,9 @@ if __name__ == "__main__":
                     nome = input("Digite o nome do proprietario: \n")
                     cpf = input("Digite o cpf do proprietario: \n")
                     telefone = input("Digite o telefone do proprietario: \n")
+                    email = input("digite o email : \n")
                     categoria = input("Digite a categoria do imovel do proprietario : \n")
-                    cat.cadastrarProprietario(nome, cpf, telefone, categoria)
+                    cat.cadastrarProprietario(id,nome, cpf, telefone,email, categoria)
                 elif decidir == 2:
                     proprietario = input("Digite o proprietario que deseja remover: \n")
                     cat.removerProprietario(proprietario)
@@ -114,7 +124,7 @@ if __name__ == "__main__":
                     novoTelefone = input('Digite o novo telefone do proprietario: \n')
                     novoCategoria = input('Digite a nova categoria  do imovel do proprietario: \n')
 
-                    cat.alterarProprietario(nomeAlterar, novoNome, novoCpf, novoTelefone, novoCategoria)
+                    cat.alterarProprietario(id,nomeAlterar, novoNome, novoCpf, novoTelefone, novoCategoria)
                 elif decidir == 4:
                     cat.mostrarProprietario()
                 else:

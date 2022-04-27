@@ -44,16 +44,15 @@ class DaoAluguel:
             alug.append(Aluguel(Imovel(i[0], i[1], i[2]), i[3], i[4], i[5], i[6], i[7]))
         return alug
 
-x = Imovel(id, "casa 2 quartos ", 'rua lar nova esperança', '45700-00', 'nova itapetinga', 'itapetinga', 'bahia', '214560', 'casa copm varanda e garagem', 'apartamento')
-
-a = Aluguel(id ,x, "lidalvo", 'jose', 'joao')
-DaoAluguel.salvar(a)
+#x = Imovel(id, "casa 2 quartos ", 'rua lar nova esperança', '45700-00', 'nova itapetinga', 'itapetinga', 'bahia', '214560', 'casa copm varanda e garagem', 'apartamento') 
+a = Aluguel(id , "lidalvo", 'jose', 'joao')
+DaoAluguel.salvar(a) 
 
 class DaoImovel:
     @classmethod
-    def salvar(cls,imovel: Imovel, disponivel):
+    def salvar(cls,imovel: Imovel, disponibilidade):
         with open('imovel.txt', 'a') as arq:
-            arq.writelines(str(imovel.id)+"|" + imovel.nome + "|" + imovel.logradouro + "|" + imovel.cep +"|" + imovel.bairro+ "|" + imovel.cidade + "|" + imovel.estado + "|" + str(imovel.valor) +"|"+imovel.descricao +"|"+imovel.categoria + "|" + str(imovel.disponivel )+"|"+ str(disponivel))
+            arq.writelines(str(imovel.id)+"|" + imovel.nome + "|" + imovel.logradouro + "|" + imovel.cep +"|" + imovel.bairro+ "|" + imovel.cidade + "|" + imovel.estado + "|" + str(imovel.valor) +"|"+imovel.descricao +"|"+imovel.categoria + "|" + imovel.disponivel +"|"+ disponibilidade)
             arq.writelines('\n')
 
 
@@ -68,18 +67,19 @@ class DaoImovel:
         est = []
         if len(cls.estoque) > 0:
             for i in cls.estoque:
-                est.append(Estoque(Imovel(i[0], i[1], i[2], i[3], i[4],i[5],i[6],i[7],i[8],i[9]), i[11]))
+                est.append(Estoque(Imovel(i[0],i[1], i[2], i[3], i[4],i[5],i[6],i[7],i[8],i[9],i[10]),i[11]))
 
         return est
-b = Imovel(id,"casa 3 quartos", 'rua 25','45700000', "nova itapetinga", 'itapetinga', "bahia", "2.500", ' casa arejada', 'apartamento',)
-DaoImovel.salvar(b, True)
+
+a = Estoque(id, ' casa no lago', ' bosque', '12365478', 'bairro de oz', 'cidadede oz', ' estado de oz', '123654', ' lago de oz proximo a casa', 'casa', 'sim', "sim")
+DaoImovel.salvar(a)
 
 class DaoProprietario:
     @classmethod
-    def salvar(cls, propietario : Proprietario):
+    def salvar(cls, proprietario : Proprietario):
         with open('proprietario.txt', 'a') as arq:
-            arq.writelines(str(propietario.id)+"|"+propietario.nome + "|" + propietario.cpf + "|" + propietario.telefone +"|"+ propietario.email
-                           + "|" + propietario.categoria)
+            arq.writelines(str(proprietario.id)+"|"+proprietario.nome + "|" + proprietario.cpf + "|" + proprietario.telefone +"|"+ proprietario.email
+                           + "|" + proprietario.categoria)
             arq.writelines('\n')
 
     @classmethod
@@ -90,14 +90,13 @@ class DaoProprietario:
         cls.proprietario = list(map(lambda x: x.replace('\n', ''), cls.proprietario))
         cls.proprietario = list(map(lambda x: x.split('|'), cls.proprietario))
         prop = []
-        for i in cls.proprietarios:
-            prop.append(Proprietario(i[0], i[1], i[2], i[3], i[4]))
+        for i in cls.proprietario:
+            prop.append(Proprietario(i[0], i[1], i[2], i[3], i[4], i[5]))
 
         return prop
-
 a =Proprietario(id,'joao' , '12365478912', "1236547891", "amanama@amana",'casa')
 DaoProprietario.salvar(a)
-
+ 
 class DaoPessoa:
     @classmethod
     def salvar(cls, pessoas: Pessoa):
@@ -120,7 +119,9 @@ class DaoPessoa:
 
         return inqui
 a = Pessoa(id, 'luan', '123647895', '5465464564', 'amaanaamana@amnaman')
-DaoPessoa.salvar(a)
+DaoPessoa.salvar(a) 
+
+
 class DaoCorretor:
     @classmethod
     def salvar(cls, corretor: Corretor):
@@ -144,4 +145,4 @@ class DaoCorretor:
         return corret
 
 p= Corretor(id, 'BA-123654', "jose", "14563214565", "123654978", 'asdasdas')        
-DaoCorretor.salvar(p)
+DaoCorretor.salvar(p) 
